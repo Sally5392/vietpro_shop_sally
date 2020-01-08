@@ -1,3 +1,7 @@
+<?php
+define('SECURITY', true);
+include_once('config/connect.php');
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -10,14 +14,15 @@
 <script src="js/bootstrap.js"></script>
 </head>
 <body>
-
 <!--	Header	-->
 <div id="header">
 	<div class="container">
     	<div class="row">
-            <?php include_once('modules/logo/logo.php');?>
-            <?php include_once('modules/search/search-box.php');?>
-            <?php include_once('modules/cart/notify.php');?>
+            <?php
+            include_once('modules/logo/logo.php');
+            include_once('modules/search/search-box.php');
+            include_once('modules/cart/notify.php');
+            ?>
         </div>
     </div>
     <!-- Toggler/collapsibe Button -->
