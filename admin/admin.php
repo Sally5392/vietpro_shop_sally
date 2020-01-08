@@ -108,7 +108,6 @@ if(!defined('SECURITY')){
     </ul>
 
 </div><!--/.sidebar-->
-
 <?php
 // Master page here
     if(isset($_GET['page_layout'])){

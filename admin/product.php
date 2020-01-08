@@ -106,16 +106,15 @@ $list_page .= '<li class="page-item"><a class="page-link" href="index.php?page_l
 
                                 <td><?php echo $row['cat_name']; ?></td>
                                 <td class="form-group">
-                                    <a href="index.php?page_layout=edit_product" class="btn btn-primary"><i
+                                    <a href="index.php?page_layout=edit_product&prd_id=<?php echo $row['prd_id']; ?>" class="btn btn-primary"><i
                                                 class="glyphicon glyphicon-pencil"></i></a>
-                                    <a href="product-edit.html" class="btn btn-danger"><i
+                                    <a href="delete_product.php?prd_id=<?php echo $row['prd_id']; ?>" onclick="return deleteItem(<?php echo $row['prd_id'];?>)" class="btn btn-danger"><i
                                                 class="glyphicon glyphicon-remove"></i></a>
                                 </td>
                             </tr>
                             <?php
                         }
                         ?>
-
                         </tbody>
                     </table>
                 </div>
@@ -131,3 +130,8 @@ $list_page .= '<li class="page-item"><a class="page-link" href="index.php?page_l
     </div><!--/.row-->
 </div>    <!--/.main-->
 
+<script>
+    function deleteItem($id) {
+      return confirm("Ban muon xoa san pham " +$id + "?" );
+    }
+</script>
