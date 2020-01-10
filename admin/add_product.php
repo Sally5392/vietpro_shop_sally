@@ -30,7 +30,6 @@ if(isset($_POST['sbm'])){
     // dua anh len server
     move_uploaded_file($prd_image_tmp, 'img/products/'.$prd_image);
 
-
     header('location: index.php?page_layout=product');
 }
 ?>
@@ -134,5 +133,4 @@ if(isset($_POST['sbm'])){
             </div>
         </div><!-- /.col-->
     </div><!-- /.row -->
-
 </div>    <!--/.main-->

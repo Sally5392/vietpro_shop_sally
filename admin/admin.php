@@ -14,15 +14,12 @@ if(!defined('SECURITY')){
     <link href="css/datepicker3.css" rel="stylesheet">
     <link href="css/bootstrap-table.css" rel="stylesheet">
     <link href="css/styles.css" rel="stylesheet">
-
     <!--Icons-->
     <script src="js/lumino.glyphs.js"></script>
-
     <!--[if lt IE 9]>
     <script src="js/html5shiv.js"></script>
     <script src="js/respond.min.js"></script>
     <![endif]-->
-
 </head>
 
 <body>
@@ -85,7 +82,7 @@ if(!defined('SECURITY')){
                     <use xlink:href="#stroked-open-folder"/>
                 </svg>
                 Quản lý danh mục</a></li>
-        <li class="<?php if($_GET['page_layout'] == 'product'){ echo 'active';} ?>"><a href="index.php?page_layout=product">
+        <li class="<?php ob_start(); if($_GET['page_layout']=='product'){ echo 'active';} ob_flush(); ?>"><a href="index.php?page_layout=product">
                 <svg class="glyph stroked bag">
                     <use xlink:href="#stroked-bag"></use>
                 </svg>
@@ -109,7 +106,6 @@ if(!defined('SECURITY')){
 
 </div><!--/.sidebar-->
 <?php
-// Master page here
     if(isset($_GET['page_layout'])){
       switch($_GET['page_layout']){
           //user
@@ -121,9 +117,9 @@ if(!defined('SECURITY')){
           case 'add_category': include_once('add_category.php'); break;
           case 'edit_category': include_once('edit_category.php'); break;
           //product
-          case 'product': include_once('product.php'); break;
-          case 'add_product': include_once('add_product.php'); break;
-          case 'edit_product': include_once('edit_product.php'); break;
+          case 'product':include_once('product.php'); break;
+          case 'add_product':include_once('add_product.php'); break;
+          case 'edit_product':include_once('edit_product.php'); break;
           //default
           default: include_once('sub_admin.php');
       }

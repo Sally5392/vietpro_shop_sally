@@ -1,3 +1,24 @@
+<?php
+    if(isset($_POST['sbm'])){
+        $name = $_POST['user_full'];
+        $mail = $_POST['user_mail'];
+        $pass = $_POST['user_pass'];
+        $re_pass = $_POST['user_re_pass'];
+        $level = $_POST['user_level'];
+
+        $sql_user = "SELECT * FROM user WHERE user_mail='$mail'";
+        $query_user = mysqli_query($connect, $sql_user);
+        $count = mysqli_num_rows($query_user);
+
+        if($count > 0 || $pass != $re_pass){
+            $error = '<div class="alert alert-danger">Email đã tồn tại ! Mật khẩu không khớp !</div>';
+        }else{
+            $sql = "INSERT INTO user(user_full, user_mail, user_pass, user_level) VALUES ('$name', '$mail', '$pass', '$level')";
+            $query = mysqli_query($connect, $sql);
+            header('location: index.php?page_layout=user');
+        }
+    }
+?>
 <div class="col-sm-9 col-sm-offset-3 col-lg-10 col-lg-offset-2 main">
     <div class="row">
         <ol class="breadcrumb">
@@ -21,7 +42,11 @@
             <div class="panel panel-default">
                 <div class="panel-body">
                     <div class="col-md-8">
-                        <div class="alert alert-danger">Email đã tồn tại !</div>
+                        <?php
+                            if(isset($error)){
+                                echo $error;
+                            }
+                        ?>
                         <form role="form" method="post">
                             <div class="form-group">
                                 <label>Họ & Tên</label>
