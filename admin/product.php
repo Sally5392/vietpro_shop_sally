@@ -17,7 +17,7 @@ $rows_per_page = 5;
 $per_rows = $page * $rows_per_page - $rows_per_page;
 
 // truy van de tinh so luong ban ghi
-$total_rows = mysqli_num_rows(mysqli_query($connect, "SELECT * FROM product"));
+echo $total_rows = mysqli_num_rows(mysqli_query($connect, "SELECT * FROM product"));
 $total_pages = ceil($total_rows / $rows_per_page);
 
 // nut Previous

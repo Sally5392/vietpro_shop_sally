@@ -89,10 +89,10 @@ if(isset($_POST['sbm'])){
                         <div class="form-group">
                             <label>Ảnh sản phẩm</label>
 
-                            <input required name="prd_image" type="file">
+                            <input required name="prd_image" type="file" onchange="readURL(this);">
                             <br>
                             <div>
-                                <img src="img/download.jpeg">
+                                <img src=""  id="img">
                             </div>
                         </div>
                         <div class="form-group">
@@ -134,3 +134,19 @@ if(isset($_POST['sbm'])){
         </div><!-- /.col-->
     </div><!-- /.row -->
 </div>    <!--/.main-->
+<script>
+    /*changing the url of an image you can do it in jquery*/
+function readURL(input) {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+            reader.onload = function (e) {
+                $('#img')
+                    .attr('src', e.target.result)
+/*set the width and height of an image*/
+                    .width(250)
+                    .height(200);
+            };
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
+</script>

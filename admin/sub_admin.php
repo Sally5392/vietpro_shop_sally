@@ -1,3 +1,6 @@
+<?php
+    $sql = 'SELECT * FROM ';
+?>
 <div class="col-sm-9 col-sm-offset-3 col-lg-10 col-lg-offset-2 main">
     <div class="row">
         <ol class="breadcrumb">
@@ -26,7 +29,7 @@
                         </svg>
                     </div>
                     <div class="col-sm-9 col-lg-7 widget-right">
-                        <div class="large">120</div>
+                        <div class="large"><?php echo mysqli_num_rows(mysqli_query($connect,$sql.'product')) ?></div>
                         <div class="text-muted">Sản Phẩm</div>
                     </div>
                 </div>
@@ -41,7 +44,7 @@
                         </svg>
                     </div>
                     <div class="col-sm-9 col-lg-7 widget-right">
-                        <div class="large">52</div>
+                        <div class="large"><?php  echo mysqli_num_rows(mysqli_query($connect, $sql."comment")) ?></div>
                         <div class="text-muted">Bình Luận</div>
                     </div>
                 </div>
@@ -56,7 +59,7 @@
                         </svg>
                     </div>
                     <div class="col-sm-9 col-lg-7 widget-right">
-                        <div class="large">24</div>
+                        <div class="large"><?php  echo mysqli_num_rows(mysqli_query($connect, $sql."user")) ?></div>
                         <div class="text-muted">Thành Viên</div>
                     </div>
                 </div>

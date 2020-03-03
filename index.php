@@ -62,6 +62,7 @@ include_once('config/connect.php');
                 ?>
             </div>
             <?php include_once ('modules/aside/aside.php'); ?>
+
         </div>
     </div>
 </div>

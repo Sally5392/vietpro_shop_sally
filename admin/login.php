@@ -28,7 +28,9 @@ if (!defined('SECURITY')) {
 if (isset($_POST['sbm'])) {
     $mail = $_POST['mail'];
     $pass = $_POST['pass'];
-    $sql = "SELECT * FROM vietpro_mobile_shop.user WHERE user_mail='$mail' AND user_pass='$pass'";
+    $sql = "SELECT * FROM vietpro_mobile_shop.user 
+            WHERE user_mail='$mail' 
+            AND user_pass='$pass'";
     $query = mysqli_query($connect, $sql);
     $num_row = mysqli_num_rows($query);
     if ($num_row > 0) {

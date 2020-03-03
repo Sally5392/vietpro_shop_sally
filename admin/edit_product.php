@@ -21,6 +21,8 @@ if(isset($_POST['sbm'])){
         $prd_image_tmp = $_FILES['prd_image']['tmp_name'];
         move_uploaded_file($prd_image_tmp, 'img/products/'.$prd_image);
     }
+
+
     $cat_id = $_POST['cat_id'];
     $prd_status = $_POST['prd_status'];
     if(isset($_POST['prd_featured'])){
