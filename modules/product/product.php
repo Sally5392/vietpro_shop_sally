@@ -31,6 +31,9 @@ $row = mysqli_fetch_assoc($query);
     </div>
 
     <!--	Comment	-->
+    <?php
+
+    ?>
     <div id="comment" class="row">
         <div class="col-lg-12 col-md-12 col-sm-12">
             <h3>Bình luận sản phẩm</h3>
@@ -56,61 +59,22 @@ $row = mysqli_fetch_assoc($query);
     <!--	Comments List	-->
     <div id="comments-list" class="row">
         <div class="col-lg-12 col-md-12 col-sm-12">
-            <div class="comment-item">
-                <ul>
-                    <li><b>Nguyễn Văn A</b></li>
-                    <li>2018-01-03 20:40:10</li>
-                    <li>
-                        <p>Kiểu dáng đẹp, cảm ứng rất nhạy, cầm trên tay cảm giác không bị cấn. Chụp ảnh tương đối nét,
-                            chơi game rất phê. Nếu giá mềm một chút thì sẽ bán khá chạy. Một sản phẩm tốt mà mọi người
-                            có thể cân nhắc.</p>
-                    </li>
-                </ul>
-            </div>
-            <div class="comment-item">
-                <ul>
-                    <li><b>Nguyễn Văn A</b></li>
-                    <li>2018-01-03 20:40:10</li>
-                    <li>
-                        <p>Kiểu dáng đẹp, cảm ứng rất nhạy, cầm trên tay cảm giác không bị cấn. Chụp ảnh tương đối nét,
-                            chơi game rất phê. Nếu giá mềm một chút thì sẽ bán khá chạy. Một sản phẩm tốt mà mọi người
-                            có thể cân nhắc.</p>
-                    </li>
-                </ul>
-            </div>
-            <div class="comment-item">
-                <ul>
-                    <li><b>Nguyễn Văn A</b></li>
-                    <li>2018-01-03 20:40:10</li>
-                    <li>
-                        <p>Kiểu dáng đẹp, cảm ứng rất nhạy, cầm trên tay cảm giác không bị cấn. Chụp ảnh tương đối nét,
-                            chơi game rất phê. Nếu giá mềm một chút thì sẽ bán khá chạy. Một sản phẩm tốt mà mọi người
-                            có thể cân nhắc.</p>
-                    </li>
-                </ul>
-            </div>
-            <div class="comment-item">
-                <ul>
-                    <li><b>Nguyễn Văn A</b></li>
-                    <li>2018-01-03 20:40:10</li>
-                    <li>
-                        <p>Kiểu dáng đẹp, cảm ứng rất nhạy, cầm trên tay cảm giác không bị cấn. Chụp ảnh tương đối nét,
-                            chơi game rất phê. Nếu giá mềm một chút thì sẽ bán khá chạy. Một sản phẩm tốt mà mọi người
-                            có thể cân nhắc.</p>
-                    </li>
-                </ul>
-            </div>
-            <div class="comment-item">
-                <ul>
-                    <li><b>Nguyễn Văn A</b></li>
-                    <li>2018-01-03 20:40:10</li>
-                    <li>
-                        <p>Kiểu dáng đẹp, cảm ứng rất nhạy, cầm trên tay cảm giác không bị cấn. Chụp ảnh tương đối nét,
-                            chơi game rất phê. Nếu giá mềm một chút thì sẽ bán khá chạy. Một sản phẩm tốt mà mọi người
-                            có thể cân nhắc.</p>
-                    </li>
-                </ul>
-            </div>
+            <?php
+            $sql_comm = "SELECT * FROM comment WHERE prd_id='$prd_id'";
+            $query_comm = mysqli_query($connect, $sql_comm);
+            while ($row = mysqli_fetch_assoc($query_comm)){ ?>
+                <div class="comment-item">
+                    <ul>
+                        <li><b><?php echo $row['comm_name']; ?></b></li>
+                        <li><?php echo $row['comm_date'];?></li>
+                        <li>
+                            <p><?php echo $row['comm_details'];?></p>
+                        </li>
+                    </ul>
+                </div>
+                <hr>
+            <?php }
+            ?>
         </div>
     </div>
     <!--	End Comments List	-->
