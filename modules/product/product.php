@@ -32,7 +32,30 @@ $row = mysqli_fetch_assoc($query);
 
     <!--	Comment	-->
     <?php
+        if(isset($_POST['sbm'])){
+            $comm_name = $_POST['comm_name'];
+            $comm_mail = $_POST['comm_mail'];
+            date_default_timezone_set("Asia/Bangkok");
+            $comm_date = date("Y-m-d H:i:s");
+            $comm_details = $_POST['comm_details'];
 
+            $sql = "INSERT INTO comment(
+                                    prd_id,
+                                    comm_name,
+                                    comm_mail,
+                                    comm_date,
+                                    comm_details
+            ) VALUES (
+                                    '$prd_id',
+                                    '$comm_name',
+                                    '$comm_mail',
+                                    '$comm_date',
+                                    '$comm_details'
+            )";
+
+            $query = mysqli_query($connect, $sql);
+
+        }
     ?>
     <div id="comment" class="row">
         <div class="col-lg-12 col-md-12 col-sm-12">
